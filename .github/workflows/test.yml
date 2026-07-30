@@ -2,6 +2,8 @@ name: Test Workflow
 
 on:
   workflow_dispatch:
+permissions:
+  contents: write
 
 jobs:
   test:
