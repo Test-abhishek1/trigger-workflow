@@ -1,0 +1,30 @@
+name: Test Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Print variables
+        run: |
+          echo "Repo = __REPO_NAME__"
+          echo "Branch = __TARGET_BRANCH__"
+
+      - name: Create file
+        run: |
+          echo "Workflow installed successfully" > hello.txt
+
+      - name: Commit file
+        run: |
+          git config user.name "AI Bot"
+          git config user.email "ai@bot.com"
+
+          git add hello.txt
+          git commit -m "Created by test workflow" || echo "Nothing to commit"
+
+          git push
