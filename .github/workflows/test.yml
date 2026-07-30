@@ -12,8 +12,8 @@ jobs:
 
       - name: Print variables
         run: |
-          echo "Repo = __REPO_NAME__"
-          echo "Branch = __TARGET_BRANCH__"
+          echo "Repo = trigger-workflow"
+          echo "Branch = main"
 
       - name: Create file
         run: |
